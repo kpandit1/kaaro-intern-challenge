@@ -16,12 +16,10 @@ export default class Comments extends Component {
       <div>
         <ul>
           <li>
-            <a href="/users/mario">mario</a>:
-              It's a me
+            <a href="/users/mario">mario</a>: It's a me
           </li>
           <li>
-            <a href="/users/yoshi">yoshi</a>:
-                       I commit tax fraud
+            <a href="/users/yoshi">yoshi</a>: I commit tax fraud
           </li>
         </ul>
 
