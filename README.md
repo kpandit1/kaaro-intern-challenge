@@ -6,10 +6,11 @@ For this challenge, you will mainly be working with the Comments component of th
 implement the following
 1. Display the comments found in the database at `https://kaaro-intern-challenge.firebaseio.com/comments.json`. This link 
 <br/>
-The comments should be formatted in the same way as the static comments. The commenter's username should link to `/users/<username>`  
+The comments should be formatted in the same way as the static comments. The commenter's username should link to `/users/username`  
 2. Implement an add comment form. On pressing the enter key, the typed in comment should be added to the database and also be displayed alongside the other comments.
 <br/>
 For example, this is how you would post a comment through curl
+
 ```
 curl -X POST -d '
   {
