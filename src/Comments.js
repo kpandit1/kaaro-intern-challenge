@@ -7,7 +7,6 @@ export default class Comments extends Component {
   }
   componentDidMount() {
     // Call REST API here to get comments from database... Hint: use fetch()
-    // Put link to fetch documentation here (and stuff from 485)
   }
   render() {
     // Change the static comments below to the actual comments from the database
