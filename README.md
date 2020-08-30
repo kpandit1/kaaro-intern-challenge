@@ -1,7 +1,7 @@
 # Kaaro Intern Coding Challenge
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## How to use Git/Github
+## Using Git/Github
 
 To install, first clone the repository by typing the following on the command line.
 ```

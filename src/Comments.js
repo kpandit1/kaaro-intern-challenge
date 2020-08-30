@@ -10,7 +10,7 @@ export default class Comments extends Component {
     // Put link to fetch documentation here (and stuff from 485)
   }
   render() {
-    // Change the static comments to the actual comments from the database
+    // Change the static comments below to the actual comments from the database
     // HINT: check out the React Docs on forms for help about adding a comment
     return (
       <div>
