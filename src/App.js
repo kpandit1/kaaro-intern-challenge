@@ -12,7 +12,7 @@ function App() {
           <img width="400px" src="https://images.unsplash.com/photo-1593789382576-54f489574d26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
         </div>
         <div className="card-content">
-          <Comments url="https://kaaro-intern-challenge.firebaseio.com/comments.json" />
+          <Comments url="https://kaaro-intern-challenge.firebaseio.com/comments.json" username="bowser"/>
         </div>
       </div>
     </div>
