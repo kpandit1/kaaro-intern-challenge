@@ -1,6 +1,26 @@
 # Kaaro Intern Coding Challenge
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Goal
+For this challenge, you will mainly be working with the Comments component of this app. To complete the challenge
+implement the following
+1. Display the comments found in the database at `https://kaaro-intern-challenge.firebaseio.com/comments.json`. This link 
+<br/>
+The comments should be formatted in the same way as the static comments. The commenter's username should link to `/users/<username>`  
+2. Implement an add comment form. On pressing the enter key, the typed in comment should be added to the database and also be displayed alongside the other comments.
+<br/>
+For example, this is how you would post a comment through curl
+```
+curl -X POST -d '
+  {
+    "username": "luigi",
+    "text": "Lets a go"
+  }
+' 'https://kaaro-intern-challenge.firebaseio.com/comments.json'
+```
+
+<bold>HINT</bold> Be sure to check out all the comments in the app code, they will give you hints on where to start!
+
 ## Using Git/Github
 
 To install, first clone the repository by typing the following on the command line.
