@@ -17,7 +17,7 @@ curl -X POST -d '
 ' 'https://kaaro-intern-challenge.firebaseio.com/comments.json'
 ```
 
-<bold>HINT</bold> Be sure to check out all the comments in the app code, they will give you hints on where to start!
+**HINT: Be sure to check out all the comments in the app code, they will give you hints on where to start!**
 
 ## Using Git/Github
 
