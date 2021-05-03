@@ -3,30 +3,74 @@ import React, { Component } from "react";
 export default class Comments extends Component {
   constructor() {
     super();
-    this.state = { comments: [], currentComment: "" };
+    this.state = { comments: [], currentComment: '' };
+    this.handleInput = this.handleInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
-    // Call REST API here to get comments from database... Hint: use fetch()
+    const { url } = this.props;
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) throw Error(response.statusText);
+        return response.json();
+      })
+      .then((data) => {
+        this.setState({
+          comments: Object.values(data),
+        });
+      })
+      .catch((error) => console.log(error));
   }
+
+  handleInput(e) {
+    this.setState({ currentComment: e.target.value });
+  }
+
+  handleSubmit(e) {
+    const { username, url } = this.props;
+    const { currentComment } = this.state;
+    fetch(url, {
+      method: 'POST',
+      credentials: 'same-origin',
+      body: JSON.stringify({
+        text: currentComment,
+        username: username,
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) throw Error(response.statusText);
+        return response.json();
+      })
+      .then(() => {
+        this.setState((prevState) => ({
+          comments: prevState.comments.concat({
+            text: currentComment,
+            username: username,
+          }),
+          currentComment: '',
+        }));
+      })
+      .catch((error) => console.log(error));
+    e.preventDefault();
+  }
+
   render() {
-    // Change the static comments below to the actual comments from the database
-    // HINT: check out the React Docs on forms for help with adding a comment
-    // HINT 2: use the username passed down to this component from App.js as the username of the currently logged in user.
-    // This should be the username displayed when a new comment is entered.
+    const { comments, currentComment } = this.state;
+
     return (
       <div>
         <ul>
-          <li>
-            <a href="/users/mario">mario</a>: It's a me
-          </li>
-          <li>
-            <a href="/users/yoshi">yoshi</a>: I commit tax fraud
-          </li>
+          {comments.map((comment) =>
+            <li>
+              <a href={`/users/${comment.username}`}>{comment.username}</a>
+                : {comment.text}
+            </li>
+          )}
         </ul>
         <div className="card-action">
-        <form className="comment-form">
-          <input type="text" value="" placeholder="Enter comment here" />
-        </form>
+          <form className="comment-form" onSubmit={this.handleSubmit}>
+            <input type="text" value={currentComment} placeholder="Enter comment here" onChange={this.handleInput} />
+          </form>
         </div>
       </div>
     );
